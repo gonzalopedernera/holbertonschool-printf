@@ -25,7 +25,7 @@ void print_s(va_list args)
 
 	if (str)
 	{
-		for (i = 0; args[i]; i++)
+		for (i = 0; str[i]; i++)
 		{
 			write(1, format[i], 1);
 		}
