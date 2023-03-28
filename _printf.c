@@ -7,17 +7,17 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0;
+	int i = 0, j = 0, len = 0;
+	va_list args;
 
 	list_f date[] = {
 		{'c', print_c},
 		{'s', print_s},
 		{'%', print_p},
+		{'i', print_id},
+		{'d', print_id},
 		{'\0', '\0'}
 	};
-
-	va_list args;
-
 	va_start(args, format);
 
 	while (format && format[i] != '\0')
@@ -38,7 +38,8 @@ int _printf(const char *format, ...)
 		else
 			_putchar(format[i]);
 		i++;
+		len++;
 	}
 	va_end(args);
-	return (0);
+	return (len);
 }

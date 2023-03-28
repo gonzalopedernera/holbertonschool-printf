@@ -4,14 +4,14 @@
  * @args: arguments
  * Return: char
  */
-
-void print_c(va_list args)
+int print_c(va_list args)
 {
 	char c;
 
 	c = va_arg(args, int);
 
 	_putchar(c);
+	return (1);
 }
 
 /**
@@ -20,9 +20,9 @@ void print_c(va_list args)
  * Return: s
  */
 
-void print_s(va_list args)
+int print_s(va_list args)
 {
-	int i;
+	int i, len = 0;
 	char *str;
 
 	str = va_arg(args, char *);
@@ -32,8 +32,10 @@ void print_s(va_list args)
 		for (i = 0; str[i]; i++)
 		{
 			write(1, &str[i], 1);
+			len ++;
 		}
 	}
+	return (len);
 }
 /**
  * print_p - print percent
@@ -41,9 +43,24 @@ void print_s(va_list args)
  * Return: %
  */
 
-void print_p(va_list args)
+int print_p(va_list args)
 {
 	(void)args;
 
 	write(1, "%", 1);
+	return (1);
+}
+
+/**
+ * print_id - print int
+ * @args: arguments
+ * Return: int
+ */
+int print_id(va_list args)
+{
+	int n;
+
+	n = va_arg(args, int);
+	print_number(n);
+	return (n);
 }
