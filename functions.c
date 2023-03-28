@@ -1,18 +1,22 @@
-#include "main.h""
+#include "main.h"
 /**
  * print_c - print char
- * args: arguments
+ * @args: arguments
  * Return: char
  */
 
 void print_c(va_list args)
 {
-	write(1, format, 1);
+	char c;
+
+	c = va_arg(args, int);
+
+	_putchar(c);
 }
 
 /**
  * print_s - print string
- * args: arguments
+ * @args: arguments
  * Return: s
  */
 
@@ -27,17 +31,19 @@ void print_s(va_list args)
 	{
 		for (i = 0; str[i]; i++)
 		{
-			write(1, format[i], 1);
+			write(1, &str[i], 1);
 		}
 	}
 }
 /**
  * print_p - print percent
- * args: arguments
+ * @args: arguments
  * Return: %
  */
 
 void print_p(va_list args)
 {
-	write(1, '%', 1);
+	(void)args;
+
+	write(1, "%", 1);
 }
