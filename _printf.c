@@ -20,10 +20,15 @@ int _printf(const char *format, ...)
 	};
 	va_start(args, format);
 
+	if (format == NULL)
+		return (-1);
+
 	while (format && format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+				return (-1);
 			j = 0;
 			while (date[j].type_p)
 			{
