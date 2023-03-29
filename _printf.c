@@ -1,16 +1,12 @@
 #include "main.h"
-
 /**
  * _printf - printf function
  * @format: format to print
  * Return: format
  */
-int _printf(const char *format, ...)
+int get_f(va_list args, char s)
 {
-	int i = 0, j = 0, len = 0;
-	va_list args;
-
-	list_f date[] = {
+list_f date[] = {
 		{'c', print_c},
 		{'s', print_s},
 		{'%', print_p},
@@ -18,6 +14,26 @@ int _printf(const char *format, ...)
 		{'d', print_id},
 		{'\0', '\0'}
 	};
+	int j = 0;
+
+	while (j < 5)
+	{
+		if (date[j].type_p == s)
+		{
+			return (date[j].f(args));
+		}
+	j++;
+	}
+	_putchar(s);
+	return (1);
+}
+
+
+int _printf(const char *format, ...)
+{
+	int i = 0, len = 0;
+	va_list args;
+
 	va_start(args, format);
 
 	if (format == NULL)
@@ -29,21 +45,15 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
-			j = 0;
-			while (date[j].type_p)
+			if (format[i + 1] != '\0')
 			{
-				if (date[j].type_p == format[i + 1])
-				{
-					i++;
-					(date[j].f)(args);
-				}
-			j++;
+				i++;
+				len+=get_f(args, format[i]);
 			}
 		}
 		else
-			_putchar(format[i]);
+			len += _putchar(format[i]);
 		i++;
-		len++;
 	}
 	va_end(args);
 	return (len);

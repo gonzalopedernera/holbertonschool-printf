@@ -35,6 +35,7 @@ int print_s(va_list args)
 			len ++;
 		}
 	}
+	
 	return (len);
 }
 /**
@@ -58,9 +59,9 @@ int print_p(va_list args)
  */
 int print_id(va_list args)
 {
-	int n;
+	int n = 0, len = 0;
 
 	n = va_arg(args, int);
-	print_number(n);
-	return (n);
+	len+= print_number(n);
+	return (len);
 }
