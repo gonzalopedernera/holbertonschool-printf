@@ -35,7 +35,10 @@ int print_s(va_list args)
 			len ++;
 		}
 	}
-	
+	else
+	{
+		len += write(1, "(null)", 6);
+	}
 	return (len);
 }
 /**
