@@ -9,7 +9,7 @@
 
 int print_number(int n)
 {
-	int num = 0, negativo = 0, cero = 0;
+	long int num = 0, negativo = 0, cero = 0;
 
 	if (n == 0)
 	{
