@@ -32,7 +32,7 @@ int print_s(va_list args)
 		for (i = 0; str[i]; i++)
 		{
 			write(1, &str[i], 1);
-			len ++;
+			len++;
 		}
 	}
 	else
@@ -62,9 +62,37 @@ int print_p(va_list args)
  */
 int print_id(va_list args)
 {
-	int n = 0, len = 0;
+	long int n = 0, num = 0, counter = 0, div = 1, print = 0;
 
-	n = va_arg(args, int);
-	len+= print_number(n);
-	return (len);
+	num = va_arg(args, int);
+	n = num;
+
+	if (n < 0)
+	{
+		_putchar('-');
+		n = n * -1;
+		num = -num;
+		counter++;
+	}
+	if (n == 0)
+	{
+		counter += _putchar('0');
+		return (counter);
+	}
+
+	while (n > 0)
+	{
+		n /= 10;
+		div *= 10;
+		counter++;
+	}
+	div /= 10;
+
+	for (; div >= 1; div /= 10)
+	{
+		print = ((num / div) % 10);
+		_putchar(print + '0');
+	}
+
+	return (counter);
 }

@@ -1,8 +1,9 @@
 #include "main.h"
 /**
- * _printf - printf function
- * @format: format to print
- * Return: format
+ * get_f - get correct function
+ * @args: arguments
+ * @s: character next to %
+ * Return: correct function or print border case
  */
 int get_f(va_list args, char s)
 {
@@ -38,7 +39,11 @@ list_f data[] = {
 	}
 }
 
-
+/**
+ * _printf - printf function
+ * @format: format to print
+ * Return: format
+ */
 int _printf(const char *format, ...)
 {
 	int i = 0, len = 0;
