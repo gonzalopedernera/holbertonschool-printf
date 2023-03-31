@@ -14,15 +14,15 @@ list_f data[] = {
 		{'i', print_id},
 		{'d', print_id},
 		{'\0', '\0'}
-	};
+	}; /*list of structures that execute corresponding function*/
 	int j = 0;
 
-	while (j < 5 && s)
+	while (j < 5 && s) /*roam through the list*/
 	{
 		if (data[j].type_p == s)
 		{
 			return (data[j].f(args));
-		}
+		} /*if the necesary specificator is found, return it's function*/
 	j++;
 	}
 
@@ -32,11 +32,11 @@ list_f data[] = {
 		_putchar('%');
 		_putchar(s);
 		return (2);
-	}
+	} /*in case no specificator is recieved, treat % as a normal char*/
 	else
 	{
 		return (_putchar('%'));
-	}
+	} /*in case "\0" is recieved, print "%"*/
 }
 
 /**
@@ -47,29 +47,29 @@ list_f data[] = {
 int _printf(const char *format, ...)
 {
 	int i = 0, len = 0;
-	va_list args;
+	va_list args;/*define a list of arguments named args*/
 
-	va_start(args, format);
+	va_start(args, format);/*initialize previously defined list*/
 
 	if (format == NULL)
-		return (-1);
+		return (-1);/*in case nothing is recieved, return error*/
 
-	while (format && format[i] != '\0')
+	while (format && format[i] != '\0')/*checks if format exist*/
 	{
-		if (format[i] == '%')
+		if (format[i] == '%')/*looks for a format indicator*/
 		{
 			if (format[i + 1] == '\0')
-				return (-1);
-			if (format[i + 1] != '\0')
+				return (-1);/*in case no character after %, return error*/
+			if (format[i + 1] != '\0')/*in case next charachter eists*/
 			{
 				i++;
 				len += get_f(args, format[i]);
-			}
+			} /*calls get_f and adds it's return value to len*/
 		}
-		else
-			len += _putchar(format[i]);
+		else /*in case current position is not "%"*/
+			len += _putchar(format[i]);/*prints the char and adds to len*/
 		i++;
 	}
 	va_end(args);
-	return (len);
+	return (len);/*return number of char printed*/
 }
