@@ -4,7 +4,7 @@
 Printf is the preferred function for printing a format string input in C. As a variadic function, printf takes an undefined number of arguments and a constant string named “format”. In this, as our first team project for cohort 20 of Holberton School students were asked to recreate the printf function from scratch.
 
 ## Prototype
-Prototype: `int _printf(const char, format,…);`
+- Prototype: `int _printf(const char, format,…);`
 
 ## How it works
 After receiving format as an input, the function will roam character by character through the string and execute a different function depending on what it finds. For normal characters, the function will print them, but there is a special character named “format indicator (%)”.
@@ -22,35 +22,35 @@ The format indicator is able to trigger a different secondary function whether i
 
 ### Character
 
-Input: ` _printf("This is a character: %c\n", ‘H’);`
+- Input: ` _printf("This is a character: %c\n", ‘H’);`
 
-Output: `This is a character: H`
+- Output: `This is a character: H`
 
 ### String
 
-Input: `_printf("%s\n", 'This is a String');`
+- Input: `_printf("%s\n", 'This is a String');`
 
-Output: `This is a String`
+- Output: `This is a String`
 
 ### Integer
 
-Input: `_printf("We are the Cohort %d\n", 20);`
+- Input: `_printf("We are the Cohort %d\n", 20);`
 
-Output: `We are the Cohort 20`
+- Output: `We are the Cohort 20`
 
 ### Others
 
 If the next character after the format indicator is not a format specifier, the format indicator (%) will be taken as a normal character and it will be printed, followed by the next character after it.
 
-Input: `_printf("This is not a format specifier: %k.\n");`
+- Input: `_printf("This is not a format specifier: %k.\n");`
 
-Output: `This is not a format specifier: %k.`
+- Output: `This is not a format specifier: %k.`
 
 Multiple format indicators can be used in a single call of the printf function. In this case, the function will include the values in the same order they appear:
 
-Input: `_printf("This is a character: %c. This is a digit: %d.\n", ‘H’, 4);`
+- Input: `_printf("This is a character: %c. This is a digit: %d.\n", ‘H’, 4);`
 
-Output: `This is a character: H. This is a digit: 4.`
+- Output: `This is a character: H. This is a digit: 4.`
 
 ## Requirments
 
