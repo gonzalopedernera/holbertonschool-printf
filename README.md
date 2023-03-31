@@ -1,11 +1,11 @@
 
-# _Printf
+# <a> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/1200px-C_Programming_Language.svg.png" width=3% heigth=3% ></img></a> _Printf
 
 Printf is the preferred function for printing a format string input in C. As a variadic function, printf takes an undefined number of arguments and a constant string named “format”. In this, as our first team project for cohort 20 of Holberton School students were asked to recreate the printf function from scratch.
 
-
 ## Prototype
-Prototype: int _printf(const char, format,…);
+Prototype: `int _printf(const char, format,…);`
+
 ## How it works
 After receiving format as an input, the function will roam character by character through the string and execute a different function depending on what it finds. For normal characters, the function will print them, but there is a special character named “format indicator (%)”.
 
@@ -59,10 +59,6 @@ Output: `This is a character: H. This is a digit: 4.`
 - Code should use the Betty style.
 - Global variables are not allowed.
 
-
-
-
-
 ## File Descriptions
 
 - ***_printf.c***: contains the function _printf, which uses the prototype *int _printf(const char format, ...);. _printf will return the number of characters printed (excluding the null byte used to end output to strings) and will write output to stdout, the standard output stream. *See man 3 printf for more detail.*
@@ -77,10 +73,9 @@ Also contains **get_f**: selects the correct functiont o execute.
 - ***man_3_printf***: manual page for **_printf**.
 
 
-
 ## Flowchart
 
-
+![flowchart](https://files.slack.com/files-tmb/T0423U1MW21-F051B9K6RL2-9dba38df80/flowchart__printf__1__720.png)
 ## Authors
 
 - Micaela Picco: [@micaelapicco](https://www.github.com/micaelapicco)
