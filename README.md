@@ -75,7 +75,7 @@ Also contains **get_f**: selects the correct functiont o execute.
 
 ## Flowchart
 
-![flowchart](https://github.com/gonzalopedernera/holbertonschool-printf/blob/master/Flowchart%20_printf%20(1).png)
+![flowchart](https://cdn.discordapp.com/attachments/783214336977928232/1091488390970605678/Flowchart__printf_1.png)
 ## Authors
 
 - Micaela Picco: [@micaelapicco](https://www.github.com/micaelapicco)
